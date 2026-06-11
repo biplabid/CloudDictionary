@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Dictionary</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="osi-panel" aria-label="OSI layers">
+        <div class="brand-block">
+          <span class="brand-mark">CD</span>
+          <div>
+            <h1>Cloud Dictionary</h1>
+            <p>Services, terminology, pricing models, use cases, and FinOps guidance.</p>
+          </div>
+        </div>
+
+        <section class="layer-card">
+          <div class="side-heading">
+            <span>OSI model</span>
+            <strong id="activeLayerCount">No layer selected</strong>
+          </div>
+          <nav class="osi-list" id="osiList" aria-label="OSI layer map"></nav>
+        </section>
+
+        <section class="source-card">
+          <span>Dictionary sources</span>
+          <a id="sourceLink" href="#" target="_blank" rel="noreferrer">Provider reference</a>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Multi-cloud reference</p>
+            <h2>Find the cloud term, then see where it sits in the stack.</h2>
+          </div>
+          <div class="provider-tabs" id="providerTabs" role="tablist" aria-label="Cloud provider"></div>
+        </header>
+
+        <section class="search-panel" aria-label="Dictionary search">
+          <label class="search-field" for="searchInput">
+            <span aria-hidden="true">/</span>
+            <input id="searchInput" type="search" autocomplete="off" placeholder="Search services, terms, pricing, processes..." />
+          </label>
+          <div class="filter-row">
+            <select id="typeFilter" aria-label="Filter by category"></select>
+            <button class="icon-button" type="button" id="clearButton" title="Clear search" aria-label="Clear search">x</button>
+          </div>
+        </section>
+
+        <section class="stats-row" id="statsRow" aria-label="Provider statistics"></section>
+
+        <section class="content-grid">
+          <aside class="results-panel" aria-label="Search results">
+            <div class="panel-heading">
+              <strong id="resultsTitle">Results</strong>
+              <span id="resultsCount"></span>
+            </div>
+            <div class="results-list" id="resultsList"></div>
+          </aside>
+
+          <article class="detail-panel" id="detailPanel" aria-live="polite"></article>
+        </section>
+      </section>
+    </main>
+
+    <script src="cloud-glossary-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
